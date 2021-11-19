@@ -1,4 +1,4 @@
-#Python Object-Oriented Programming
+# Python Object-Oriented Programming
 
 
 class Employee:
@@ -7,7 +7,7 @@ class Employee:
     num_of_employees = 0
     raise_amt = 1.04
 
-    def __init__(self, first, last, pay): #think of as initialize method or other languages call it constructor method
+    def __init__(self, first, last, pay):  # think of as initialize method or other languages call it constructor method
         self.first = first
         self.last = last
         self.pay = pay
@@ -17,7 +17,6 @@ class Employee:
 
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
-
 
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amt)
@@ -42,7 +41,7 @@ class Employee:
         first, last, pay = emp_str.split('-')
         return cls(first, last, pay)
 
-    #use a static method if you don't need to reference an instance or class anywhere in the function.
+    # use a static method if you don't need to reference an instance or class anywhere in the function.
     @staticmethod
     def is_workday(day):
         if day.weekday() == 5 or day.weekday() == 6:
@@ -58,6 +57,7 @@ class Developer(Employee):
     def __init__(self, first, last, pay, prog_lang):
         super().__init__(first, last, pay) # passes specified attributes to Employee init method
         self.prog_lang = prog_lang
+
 
 class Manager(Employee):
 
@@ -79,8 +79,6 @@ class Manager(Employee):
     def print_emps(self):
         for emp in self.employees:
             print('-->', emp.fullname())
-
-
 
 # video 2: class variables. should be used for something that won't change between class instances.
 # this example is a standard pay raise that applies to all employees
@@ -140,7 +138,8 @@ str(dev_1)
 # print(Employee.__dict__)
 
 # assigning the class attribute to the instance creates it in the instance's namespace
-# # this can effect methods that reference self vs the class (Employee in this case). self will use the instance variable.
+# # this can effect methods that reference
+# self vs the class (Employee in this case). self will use the instance variable.
 # emp_1.raise_amount = 1.05
 #
 # print(emp_1.__dict__)
